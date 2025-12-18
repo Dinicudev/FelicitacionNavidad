@@ -9,7 +9,7 @@
 
 <body>
 
-<!-- PANTALLA INICIAL -->
+<!-- START -->
 <div class="start-screen" onclick="startExperience()">
     <h1>✨ Pulsa para comenzar ✨</h1>
     <h3 class="audio-hint">🔊 Activa el sonido para la experiencia completa</h3>
@@ -18,25 +18,19 @@
 <!-- CONTENIDO -->
 <div class="content" id="content">
 
-    <!-- ZONA SUPERIOR FIJA -->
+    <!-- ZONA ÁRBOL -->
     <div class="top-area">
-        <div class="tree-container">
-            <div class="tree">
-
-                <div class="tree-star">⭐</div>
-
-                <div class="layer layer1"></div>
-                <div class="layer layer2"></div>
-                <div class="layer layer3"></div>
-
-                <div class="ornament o1">🔴</div>
-                <div class="ornament o2">🟡</div>
-                <div class="ornament o3">🔵</div>
-                <div class="ornament o4">🟣</div>
-                <div class="ornament o5">🟠</div>
-
-                <div class="trunk"></div>
-            </div>
+        <div class="tree">
+            <div class="tree-star">⭐</div>
+            <div class="layer layer1"></div>
+            <div class="layer layer2"></div>
+            <div class="layer layer3"></div>
+            <div class="ornament o1">🔴</div>
+            <div class="ornament o2">🟡</div>
+            <div class="ornament o3">🔵</div>
+            <div class="ornament o4">🟣</div>
+            <div class="ornament o5">🟠</div>
+            <div class="trunk"></div>
         </div>
     </div>
 
@@ -49,16 +43,19 @@
 
 </div>
 
-<!-- BOTÓN DIVERTIDO -->
+<!-- FRASES SISTEMAS -->
+<div class="system-phrase" id="systemPhrase"></div>
+
+<!-- BOTÓN REGALO -->
 <div class="fun-button-container" id="funButton">
     <button onclick="showSurprise()">🎁 No pulses aquí</button>
 </div>
 
-<!-- CAJA SORPRESA -->
+<!-- SORPRESA -->
 <div class="surprise-box" id="surpriseBox">
-    😂 Por muchos más problemas en 2026 😂 <br>Sistemas también se va de vacaciones de momento, volveremos.
+    😂 Sistemas también se va de vacaciones 😂  
     <br><br>
-    ¡Felices fiestas! 🎄🎉
+    Volvemos en 2026… con más bugs.
     <br><br>
     <button onclick="closeSurprise()">Cerrar</button>
 </div>

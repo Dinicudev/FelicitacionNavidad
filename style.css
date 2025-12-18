@@ -5,15 +5,11 @@ body {
     font-family: 'Segoe UI', sans-serif;
     color: white;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
 }
 
-/* START SCREEN */
-.start-screen,
-.content {
+/* START */
+.start-screen, .content {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -24,9 +20,9 @@ body {
 }
 
 .start-screen {
-    background: rgba(0,0,0,0.65);
+    background: rgba(0,0,0,0.7);
+    z-index: 10;
     cursor: pointer;
-    z-index: 20;
 }
 
 .start-screen h1 {
@@ -35,9 +31,7 @@ body {
 }
 
 .audio-hint {
-    margin-top: 20px;
-    font-size: 1.1em;
-    opacity: .85;
+    opacity: .8;
     animation: pulse 2s infinite;
 }
 
@@ -56,7 +50,6 @@ body {
     opacity: 1;
 }
 
-/* LAYOUT */
 .top-area {
     height: 320px;
     display: flex;
@@ -69,15 +62,10 @@ body {
     padding: 10px 20px;
 }
 
-h2 {
-    font-size: 2.3em;
-}
-
 .message {
-    font-size: 1.35em;
-    line-height: 1.7;
     min-height: 200px;
     white-space: pre-line;
+    font-size: 1.35em;
 }
 
 /* TREE */
@@ -155,7 +143,7 @@ h2 {
 .o4 { top: 145px; left: 85px; animation-delay: 2s; }
 .o5 { top: 145px; left: 115px; animation-delay: 2.2s; }
 
-/* PARTICLES */
+/* PARTÍCULAS */
 .particle {
     position: absolute;
     top: -30px;
@@ -167,46 +155,53 @@ h2 {
     to { transform: translateY(120vh) rotate(360deg); }
 }
 
-/* FUN BUTTON */
+/* FRASES SISTEMAS */
+.system-phrase {
+    position: fixed;
+    font-size: 1.8rem;
+    font-weight: bold;
+    opacity: 0;
+    z-index: 50;
+    transition: all 0.6s ease;
+    pointer-events: none;
+    text-shadow: 0 10px 25px rgba(0,0,0,.6);
+}
+
+.system-phrase.show {
+    opacity: 1;
+}
+
+/* REGALO */
 .fun-button-container {
     position: fixed;
     right: 30px;
     top: 50%;
     transform: translateY(-50%);
     display: none;
-    z-index: 30;
+    z-index: 60;
 }
 
 .fun-button-container button {
     padding: 15px 25px;
-    font-size: 1.1em;
     border-radius: 30px;
     border: none;
-    cursor: pointer;
     background: #ff4d6d;
     color: white;
+    cursor: pointer;
 }
 
-/* SURPRISE */
 .surprise-box {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    background: rgba(0,0,0,0.85);
+    transform: translate(-50%,-50%) scale(0);
+    background: rgba(0,0,0,.85);
     padding: 30px;
     border-radius: 20px;
-    max-width: 320px;
-    z-index: 40;
+    z-index: 80;
     transition: transform .3s ease;
 }
 
 .surprise-box button {
     margin-top: 20px;
-    padding: 10px 20px;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-    background: #1f8a4c;
-    color: white;
 }
