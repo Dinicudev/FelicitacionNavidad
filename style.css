@@ -1,4 +1,3 @@
-/* ===== RESET / BASE ===== */
 body {
     margin: 0;
     height: 100vh;
@@ -12,20 +11,20 @@ body {
     text-align: center;
 }
 
-/* ===== START SCREEN ===== */
+/* START SCREEN */
 .start-screen,
 .content {
     position: absolute;
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
 }
 
 .start-screen {
-    background: rgba(0, 0, 0, 0.65);
+    background: rgba(0,0,0,0.65);
     cursor: pointer;
     z-index: 20;
 }
@@ -35,27 +34,43 @@ body {
     animation: pulse 1.6s infinite;
 }
 
-@keyframes pulse {
-    0%   { opacity: .4; }
-    50%  { opacity: 1; }
-    100% { opacity: .4; }
+.audio-hint {
+    margin-top: 20px;
+    font-size: 1.1em;
+    opacity: .85;
+    animation: pulse 2s infinite;
 }
 
-/* ===== CONTENT ===== */
+@keyframes pulse {
+    0%,100% { opacity: .4; }
+    50% { opacity: 1; }
+}
+
+/* CONTENT */
 .content {
     opacity: 0;
-    transition: opacity 1.8s ease;
-    padding: 20px;
-    max-width: 720px;
+    transition: opacity 1.5s ease;
 }
 
 .content.show {
     opacity: 1;
 }
 
+/* LAYOUT */
+.top-area {
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-area {
+    max-width: 720px;
+    padding: 10px 20px;
+}
+
 h2 {
     font-size: 2.3em;
-    margin: 15px 0;
 }
 
 .message {
@@ -65,72 +80,27 @@ h2 {
     white-space: pre-line;
 }
 
-footer {
-    margin-top: 25px;
-    opacity: 0.85;
-}
-
-/* ===== ❄ NIEVE ===== */
-.snowflake {
-    position: absolute;
-    top: -20px;
-    color: white;
-    opacity: 0.85;
-    animation: snow linear infinite;
-}
-
-@keyframes snow {
-    to { transform: translateY(120vh); }
-}
-
-/* ===== ✨ ESTRELLAS FONDO ===== */
-.sky-star {
-    position: absolute;
-    background: white;
-    border-radius: 50%;
-    opacity: .8;
-    animation: twinkle infinite ease-in-out;
-}
-
-@keyframes twinkle {
-    0%, 100% { opacity: .2; }
-    50% { opacity: 1; }
-}
-
-/* ===== 🎄 ÁRBOL ===== */
-.tree-container {
-    margin-bottom: 25px;
-    animation: treeIn 1.8s ease forwards;
-}
-
-@keyframes treeIn {
-    from { opacity: 0; transform: scale(.7); }
-    to   { opacity: 1; transform: scale(1); }
-}
-
+/* TREE */
 .tree {
     position: relative;
     width: 200px;
     height: 280px;
-    margin: 0 auto;
 }
 
-/* ⭐ Estrella */
 .tree-star {
     position: absolute;
     top: -35px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 2.4rem;
-    animation: starGlow 1.4s infinite alternate;
+    animation: glow 1.4s infinite alternate;
 }
 
-@keyframes starGlow {
+@keyframes glow {
     from { filter: drop-shadow(0 0 5px gold); }
-    to   { filter: drop-shadow(0 0 18px gold); }
+    to { filter: drop-shadow(0 0 18px gold); }
 }
 
-/* 🌲 Capas */
 .layer {
     position: absolute;
     left: 50%;
@@ -150,7 +120,6 @@ footer {
     to { transform: translateX(-50%) scaleY(1); }
 }
 
-/* 🎁 Tronco */
 .trunk {
     position: absolute;
     bottom: 0;
@@ -164,7 +133,6 @@ footer {
     animation-delay: 1.2s;
 }
 
-/* 🔴 Bolas */
 .ornament {
     position: absolute;
     font-size: 1.3rem;
@@ -173,7 +141,7 @@ footer {
 }
 
 @keyframes blink {
-    0%, 100% { opacity: .4; }
+    0%,100% { opacity: .4; }
     50% { opacity: 1; }
 }
 
@@ -187,18 +155,58 @@ footer {
 .o4 { top: 145px; left: 85px; animation-delay: 2s; }
 .o5 { top: 145px; left: 115px; animation-delay: 2.2s; }
 
-/* ❄❄❄ PARTÍCULAS FLOTANTES (NIEVE + EMOJIS) ❄❄❄ */
+/* PARTICLES */
 .particle {
     position: absolute;
     top: -30px;
-    animation-name: fall;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    animation: fall linear infinite;
     pointer-events: none;
 }
 
 @keyframes fall {
-    to {
-        transform: translateY(120vh) rotate(360deg);
-    }
+    to { transform: translateY(120vh) rotate(360deg); }
+}
+
+/* FUN BUTTON */
+.fun-button-container {
+    position: fixed;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+    z-index: 30;
+}
+
+.fun-button-container button {
+    padding: 15px 25px;
+    font-size: 1.1em;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    background: #ff4d6d;
+    color: white;
+}
+
+/* SURPRISE */
+.surprise-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: rgba(0,0,0,0.85);
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 320px;
+    z-index: 40;
+    transition: transform .3s ease;
+}
+
+.surprise-box button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background: #1f8a4c;
+    color: white;
 }
