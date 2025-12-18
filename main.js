@@ -12,10 +12,13 @@ alegría y un gran comienzo para el año que viene.
 const SYSTEM_PHRASES = [
     "No funciona",
     "Ya lo tienes tío",
+    "Los recursos no están disponibles",
     "Es que no abre",
     "De repente ha dejado de ir",
+    "Llamada entrante...",
     "¿Puedes venir un segundo?",
     "No me imprime las etiquetas",
+    "Los recursos no están disponibles",
     "Ya lo tienes tío",
     "No sé, es muy raro",
     "Arreglame la secuencia de los bultos",
