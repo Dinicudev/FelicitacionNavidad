@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Feliz Navidad 🎄</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 600px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            animation: fadeIn 1.5s ease;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .btn {
+            margin-top: 30px;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            background: #e63946;
+            color: white;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background: #ff4d5a;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>🎄 Feliz Navidad 🎄</h1>
+
+    <p>
+        De parte del equipo de <strong>Sistemas</strong>,  
+        queremos agradeceros el trabajo, la paciencia  
+        y los retos superados este año.
+        <br><br>
+        Que estas fiestas estén llenas de descanso,  
+        buenos momentos y energía para el nuevo año.
+    </p>
+
+    <button class="btn" onclick="playMusic()">▶ Activar música</button>
+
+    <footer>
+        — Equipo de Sistemas 💻
+    </footer>
+</div>
+
+<audio id="music" loop>
+    <source src="navidad.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+</audio>
+
+<script>
+    function playMusic() {
+        const audio = document.getElementById("music");
+        audio.play();
+    }
+</script>
+
+</body>
+</html> 

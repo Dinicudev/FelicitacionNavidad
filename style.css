@@ -1,0 +1,204 @@
+/* ===== RESET / BASE ===== */
+body {
+    margin: 0;
+    height: 100vh;
+    background: radial-gradient(circle at top, #1b3c59, #0b1d2a);
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* ===== START SCREEN ===== */
+.start-screen,
+.content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.start-screen {
+    background: rgba(0, 0, 0, 0.65);
+    cursor: pointer;
+    z-index: 20;
+}
+
+.start-screen h1 {
+    font-size: 2.6em;
+    animation: pulse 1.6s infinite;
+}
+
+@keyframes pulse {
+    0%   { opacity: .4; }
+    50%  { opacity: 1; }
+    100% { opacity: .4; }
+}
+
+/* ===== CONTENT ===== */
+.content {
+    opacity: 0;
+    transition: opacity 1.8s ease;
+    padding: 20px;
+    max-width: 720px;
+}
+
+.content.show {
+    opacity: 1;
+}
+
+h2 {
+    font-size: 2.3em;
+    margin: 15px 0;
+}
+
+.message {
+    font-size: 1.35em;
+    line-height: 1.7;
+    min-height: 200px;
+    white-space: pre-line;
+}
+
+footer {
+    margin-top: 25px;
+    opacity: 0.85;
+}
+
+/* ===== ❄ NIEVE ===== */
+.snowflake {
+    position: absolute;
+    top: -20px;
+    color: white;
+    opacity: 0.85;
+    animation: snow linear infinite;
+}
+
+@keyframes snow {
+    to { transform: translateY(120vh); }
+}
+
+/* ===== ✨ ESTRELLAS FONDO ===== */
+.sky-star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: .8;
+    animation: twinkle infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: .2; }
+    50% { opacity: 1; }
+}
+
+/* ===== 🎄 ÁRBOL ===== */
+.tree-container {
+    margin-bottom: 25px;
+    animation: treeIn 1.8s ease forwards;
+}
+
+@keyframes treeIn {
+    from { opacity: 0; transform: scale(.7); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+.tree {
+    position: relative;
+    width: 200px;
+    height: 280px;
+    margin: 0 auto;
+}
+
+/* ⭐ Estrella */
+.tree-star {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.4rem;
+    animation: starGlow 1.4s infinite alternate;
+}
+
+@keyframes starGlow {
+    from { filter: drop-shadow(0 0 5px gold); }
+    to   { filter: drop-shadow(0 0 18px gold); }
+}
+
+/* 🌲 Capas */
+.layer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scaleY(0);
+    transform-origin: top;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 90px solid #1f8a4c;
+    animation: grow 1s forwards;
+}
+
+.layer1 { top: 35px; animation-delay: .3s; }
+.layer2 { top: 80px; border-bottom-color: #18703e; animation-delay: .6s; }
+.layer3 { top: 125px; border-bottom-color: #145c33; animation-delay: .9s; }
+
+@keyframes grow {
+    to { transform: translateX(-50%) scaleY(1); }
+}
+
+/* 🎁 Tronco */
+.trunk {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleY(0);
+    width: 32px;
+    height: 45px;
+    background: #6b3e26;
+    border-radius: 6px;
+    animation: grow 1s forwards;
+    animation-delay: 1.2s;
+}
+
+/* 🔴 Bolas */
+.ornament {
+    position: absolute;
+    font-size: 1.3rem;
+    opacity: 0;
+    animation: blink 2.4s infinite, appear .5s forwards;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: .4; }
+    50% { opacity: 1; }
+}
+
+@keyframes appear {
+    to { opacity: 1; }
+}
+
+.o1 { top: 75px; left: 95px; animation-delay: 1.4s; }
+.o2 { top: 105px; left: 65px; animation-delay: 1.6s; }
+.o3 { top: 105px; left: 125px; animation-delay: 1.8s; }
+.o4 { top: 145px; left: 85px; animation-delay: 2s; }
+.o5 { top: 145px; left: 115px; animation-delay: 2.2s; }
+
+/* ❄❄❄ PARTÍCULAS FLOTANTES (NIEVE + EMOJIS) ❄❄❄ */
+.particle {
+    position: absolute;
+    top: -30px;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(120vh) rotate(360deg);
+    }
+}

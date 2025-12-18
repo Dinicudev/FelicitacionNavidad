@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Feliz Navidad 🎄</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- PANTALLA INICIAL -->
+<div class="start-screen" onclick="startExperience()">
+    <h1>✨ Pulsa para comenzar ✨</h1>
+</div>
+
+<!-- CONTENIDO -->
+<div class="content" id="content">
+
+    <!-- ÁRBOL -->
+    <div class="tree-container">
+        <div class="tree">
+
+            <div class="tree-star">⭐</div>
+
+            <div class="layer layer1"></div>
+            <div class="layer layer2"></div>
+            <div class="layer layer3"></div>
+
+            <div class="ornament o1">🔴</div>
+            <div class="ornament o2">🟡</div>
+            <div class="ornament o3">🔵</div>
+            <div class="ornament o4">🟣</div>
+            <div class="ornament o5">🟠</div>
+
+            <div class="trunk"></div>
+        </div>
+    </div>
+
+    <h2>🎄 Feliz Navidad 🎄</h2>
+    <div class="message" id="message"></div>
+    <footer>— Equipo de Sistemas 💻</footer>
+
+</div>
+
+<!-- AUDIO -->
+<audio id="music" loop>
+    <source src="navidad.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+/* ===== TEXTO ===== */
+const text = `
+De parte del equipo de Sistemas,
+
+queremos desearos una Feliz Navidad
+y agradeceros el esfuerzo, la paciencia
+y el trabajo en equipo durante todo el año.
+
+Que estas fiestas traigan descanso,
+alegría y un gran comienzo para el año que viene.
+`;
+
+let index = 0;
+
+function typeWriter() {
+    if (index < text.length) {
+        document.getElementById("message").textContent += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, 40);
+    }
+}
+
+/* ===== START ===== */
+function startExperience() {
+    document.querySelector(".start-screen").style.display = "none";
+    document.getElementById("content").classList.add("show");
+    document.getElementById("music").play();
+
+    typeWriter();
+    createSkyStars();
+    startParticles();
+}
+
+/* ===== ESTRELLAS FONDO ===== */
+function createSkyStars() {
+    for (let i = 0; i < 70; i++) {
+        const star = document.createElement("div");
+        star.className = "sky-star";
+        const size = Math.random() * 2 + 1;
+        star.style.width = size + "px";
+        star.style.height = size + "px";
+        star.style.left = Math.random() * 100 + "vw";
+        star.style.top = Math.random() * 100 + "vh";
+        star.style.animationDuration = (2 + Math.random() * 4) + "s";
+        document.body.appendChild(star);
+    }
+}
+
+/* ===== PARTÍCULAS (NIEVE + EMOJIS) ===== */
+function startParticles() {
+    createParticles("❄", 40, 6, 12, 0.9);
+    createParticles("✨", 15, 8, 14, 0.8);
+    createParticles("🎄", 8, 12, 18, 0.7);
+    createParticles("🎁", 6, 14, 20, 0.8);
+    createParticles("⭐", 10, 10, 16, 0.9);
+    createParticles("💻", 5, 16, 22, 0.6);
+}
+
+function createParticles(symbol, amount, minSpeed, maxSpeed, opacity) {
+    for (let i = 0; i < amount; i++) {
+        const p = document.createElement("div");
+        p.className = "particle";
+        p.textContent = symbol;
+
+        p.style.left = Math.random() * 100 + "vw";
+        p.style.fontSize = (14 + Math.random() * 18) + "px";
+        p.style.opacity = opacity;
+
+        const duration = minSpeed + Math.random() * (maxSpeed - minSpeed);
+        p.style.animationDuration = duration + "s";
+
+        document.body.appendChild(p);
+    }
+}
+</script>
+
+</body>
+</html>
